@@ -1,8 +1,6 @@
-# Especificaciones de Negocio
+### Casos de Uso
 
-## Casos de Uso
-
-## El alcance de esta guía de implementación aborda 1 escenario general, que es el siguiente':'
+El alcance de esta guía de implementación aborda 1 escenario general, que es el siguiente':'
 
  a. Consultar y disponibilizar la información de prestadores:
 
@@ -14,7 +12,7 @@
 |CU04|Responder resultado negativo|El maestro envía respuesta de que no existe el prestador consultado al sistema de información.|
 {:.grid}
 
-## Actores
+#### Actores
 
 * Consultador: sistema de información de salud o registro clínico electrónico implementado en un establecimiento de salud, que requiera consultar la información de prestadores individuales y/o institucionales.
 
