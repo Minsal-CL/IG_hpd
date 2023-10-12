@@ -3,21 +3,20 @@
 # │  used properties are included. For a list of all supported properties and their functions,     │
 # │  see: https://fshschool.org/docs/sushi/configuration/.                                         │
 # ╰────────────────────────────────────────────────────────────────────────────────────────────────╯
-id: minsal.fhir.core
-canonical: http://minsal.cl/fhir/core
-name: Maestro de prestadores individuales
-title: Maestro de prestadores individuales
-# description: Example Implementation Guide for getting started with SUSHI
+id: hl7.fhir.cl.minsal.hpd
+canonical: https://interoperabilidad.minsal.cl/fhir/ig/snre
+name: Indice Maestro de prestadores individuales
+title: Indice Maestro de prestadores individuales
+description: Indice Maestro de prestadores individuales
 status: draft # draft | active | retired | unknown
-version: 0.1.1
+version: 0.2.0
 fhirVersion: 4.0.1 # https://www.hl7.org/fhir/valueset-FHIR-version.html
 copyrightYear: 2023+
-releaseLabel: ci-build # ci-build | draft | qa-preview | ballot | trial-use | release | update | normative+trial-use
-# license: CC0-1.0 # https://www.hl7.org/fhir/valueset-spdx-license.html
-# jurisdiction: urn:iso:std:iso:3166#US "United States of America" # https://www.hl7.org/fhir/valueset-jurisdiction.html
+releaseLabel: draft # ci-build | draft | qa-preview | ballot | trial-use | release | update | normative+trial-use
+jurisdiction: urn:iso:std:iso:3166#CL "Chile"
 publisher:
-  name: HL7 Chile
-  url: https://hl7chile.cl/
+  name: Unidad de Interoperabilidad - MINSAL
+  url: https://interoperabilidad.minsal.cl
   # email: test@example.org
 
 # The dependencies property corresponds to IG.dependsOn. The key is the
@@ -25,7 +24,7 @@ publisher:
 # use cases, the value can be an object with keys for id, uri, and version.
 #
 dependencies:
-   hl7.fhir.cl.clcore: 1.8.4
+  hl7.fhir.cl.clcore: 1.8.4
 #   hl7.fhir.us.mcode:
 #     id: mcode
 #     uri: http://hl7.org/fhir/us/mcode/ImplementationGuide/hl7.fhir.us.mcode
@@ -82,7 +81,7 @@ pages:
 menu:
   Inicio: index.html
   Negocio: negocio.html
-  Artifacts: artifacts.html
+  Artefactos: artifacts.html
 
 # ╭───────────────────────────Less Common Implementation Guide Properties──────────────────────────╮
 # │  Uncomment the properties below to configure additional properties on the ImplementationGuide  │
