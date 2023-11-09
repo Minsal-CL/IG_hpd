@@ -4,9 +4,10 @@
 Alias: $SegundoApellido = https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/SegundoApellido
 Alias: $cl-address = https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/cl-address
 
-Profile: PrestadorProfesionalMinsal
+Profile: MINSALPrestadorProfesional
 Parent: PrestadorCL
-Title: "Prestador Profesional Minsal"
+Id: MINSALPrestadorProfesional
+Title: "MINSAL Prestador Profesional"
 Description: "Prestador Profesional Individual definido para fines de requerimientos normativos y conjunto de datos deseables para el sector público de salud."
 
 * ^version = "0.1.0"
@@ -21,56 +22,70 @@ Description: "Prestador Profesional Individual definido para fines de requerimie
 * ^jurisdiction = urn:iso:std:iso:3166#CL "Chile"
 * ^copyright = "Usado con el permiso de HL7 International, todos los derechos resevados en los Licencias de HL7 Internacional."
 
+* extension contains https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/CodigoPaises named Nacionalidad 1..1 MS
 
-
-* identifier[RUN] ^short = "Identificador destinado a determinar el número de RUN"
-* identifier[RUN] ^definition = "Corresponde al identificador (RUN) otorgado el Registro Civil de Chile"
-
+* identifier 2..3
+* identifier[run] 1..1 MS
+* identifier[run] ^short = "Identificador destinado a determinar el número de RUN"
+* identifier[run] ^definition = "Corresponde al identificador (RUN) otorgado el Registro Civil de Chile"
   * use 1..1 MS 
   * use = #official
   * type 1..1 MS
-  * type from VSTipoIdentificadorDEIS
+  //* type from VSTipoIdentificadorDEIS
   * type ^short = "Descripción del identificador"
   * type ^definition = "Descripción para el tipo de identificador"
     * coding MS
       * system 0..1 MS
       * system ^short = "Sistema de codificación para el código de tipo de identificador"
       * code 1..1 MS
-      * code = #1
+      //* code = #1
       * code ^short = "Código que identifica al tipo de documento de identificador"
       * code ^definition = "Código que identifica al tipo de documento de identificador"
-  
-* identifier[OtrosID] 0..2 MS
-* identifier[OtrosID] ^short = "Identificador para Identificador RNPI y Pasaporte"
-* identifier[OtrosID] ^definition = "Se dispone de la posibilidad de agregar un identificador RNPI y un Pasaporte o ambos"
+  * value 1..1 MS
+  * value ^short = "Número RUN"
+  * value ^definition = "Valor RUN"
+
+
+* identifier[rnpi] 1..1 MS
+* identifier[rnpi] ^short = "Identificador para RNPI"
   * use 1..1 MS
   * use = #secondary
   * use ^short = "Se define el uso de este identificador"
   * use ^definition = "Se definirá este uso siempre como \"secondary\""
   * type 1..1 MS
-  * type from VSTipoIdentificadorDEIS
+  //* type from VSTipoIdentificadorDEIS
   * type ^short = "Descripción del identificador"
   * type ^definition = "Descripción para el tipo de identificador"
-    * extension contains https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/CodigoPaises named PaisOrigen 0..1  MS
     * coding MS
       * system 1..1 MS
       * system ^short = "Sistema de codificación para el código de tipo de identificador"
-      * code ^short = "4: Pasaporte|98: RNPI"
-      * code ^definition = "Código que identifica al tipo de documento de identificador. #4 será para pasaporte y #98 para RNPI"
-
+      * code ^definition = "Código que identifica al tipo de documento de identificador. Será #98 para RNPI"
   * value 1..1 MS
-  * value ^short = "Número de Pasaporte o RNPI"
-  * value ^definition = "Valor del Pasaporte especificado en el documento o RNPI entregado por la SuperIntendecia de Salud"
+  * value ^short = "Número RNPI"
+  * value ^definition = "Valor RNPI entregado por la SuperIntendecia de Salud"
+
+
+* identifier[otro] 0..1
+  * use 1..1 MS
+  * use = #temp
+  * use ^short = "Se define el uso de este identificador"
+  * use ^definition = "Se definirá este uso siempre como \"temp\""
+  * type 1..1 MS
+  //* type from VSTipoIdentificadorDEIS
+  * type ^short = "Descripción del identificador"
+  * type ^definition = "Descripción para el tipo de identificador"
+    * coding MS
+      * system 1..1 MS
+      * system ^short = "Sistema de codificación para el código de tipo de identificador"
+  * value 1..1 MS
+* identifier[otro] ^short = "Otro tipo de identificador"
+
 
 * active MS
-
 
 * birthDate 1..1 MS
 * birthDate ^short = "Fecha de nacimiento del Paciente. El formato debe ser YYYY-MM-DD"
 * birthDate ^definition = "Fecha de nacimiento del Paciente. El formato debe ser YYYY-MM-DD (Ej: 1996-08-21)"
-
-* extension contains SexoNacimiento820 named Sexo 1..1 MS
-* extension contains https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/CodigoPaises named Nacionalidad 1..1 MS
 
 * telecom MS
   * rank 0..1 MS
@@ -86,6 +101,14 @@ Description: "Prestador Profesional Individual definido para fines de requerimie
     EspBioQ 0..* MS and
     EspFarma 0..* MS
 
+* qualification[Cert].code.text 1..1
+* qualification[Esp].code.text 1..1
+* qualification[SubEsp].code.text 1..1
+* qualification[EspOdo].code.text 1..1
+* qualification[EspBioQ].code.text 1..1
+* qualification[EspFarma].code.text 1..1
+
+
 * qualification[Cert] ^short = "Especificación de los Títulos o Certificados Profesionales que tiene el Prestador"
 * qualification[Cert] ^definition = "Listado de Títulos o Cetificados Profesionales que tiene el prestador. Solo se consideran aquellos que pueden ser demostrados en consulta a la casa de estudios pertinente"
 * qualification[Cert].code MS
@@ -99,9 +122,9 @@ Description: "Prestador Profesional Individual definido para fines de requerimie
   * ^definition  = "El nombre de la entidad se solicitará en texto libre"
   * display ^short = "La entidad que otorga en texto libre"
   * display ^definition = "La entidad que otorga en texto libre"
+* qualification[Cert].extension contains Mencion named Mencion 0..1 MS
 
 
-* qualification[Cert].extension contains Mencion named mencion 0..1 MS
 
 * qualification[EspOdo] ^short = "Especialidad Odontológica que tiene el Prestador"
   * ^definition = "Especialidades definidas en Norma Técnica 820"
