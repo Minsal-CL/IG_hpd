@@ -28,11 +28,12 @@ Description: "Prestador Profesional Individual definido para fines de requerimie
 * name 1..1 MS
 
 * identifier 2..3
+
 * identifier[run] 1..1 MS
 * identifier[run] ^short = "Identificador destinado a determinar el número de RUN"
 * identifier[run] ^definition = "Corresponde al identificador (RUN) otorgado el Registro Civil de Chile"
-  * use 1..1 MS 
-  * use = #official
+  //* use MS 
+  //* use = #official
   * type 1..1 MS
   //* type from VSTipoIdentificadorDEIS
   * type ^short = "Descripción del identificador"
@@ -41,7 +42,7 @@ Description: "Prestador Profesional Individual definido para fines de requerimie
       * system 0..1 MS
       * system ^short = "Sistema de codificación para el código de tipo de identificador"
       * code 1..1 MS
-      //* code = #1
+      * code = #1
       * code ^short = "Código que identifica al tipo de documento de identificador"
       * code ^definition = "Código que identifica al tipo de documento de identificador"
   * value 1..1 MS
@@ -51,8 +52,8 @@ Description: "Prestador Profesional Individual definido para fines de requerimie
 
 * identifier[rnpi] 1..1 MS
 * identifier[rnpi] ^short = "Identificador para RNPI"
-  * use 1..1 MS
-  * use = #secondary
+  //* use 1..1 MS
+  //* use = #secondary
   * use ^short = "Se define el uso de este identificador"
   * use ^definition = "Se definirá este uso siempre como \"secondary\""
   * type 1..1 MS
@@ -61,6 +62,7 @@ Description: "Prestador Profesional Individual definido para fines de requerimie
   * type ^definition = "Descripción para el tipo de identificador"
     * coding MS
       * system 1..1 MS
+      * code = #2
       * system ^short = "Sistema de codificación para el código de tipo de identificador"
       * code ^definition = "Código que identifica al tipo de documento de identificador. Será #98 para RNPI"
   * value 1..1 MS
@@ -69,8 +71,8 @@ Description: "Prestador Profesional Individual definido para fines de requerimie
 
 
 * identifier[otro] 0..1
-  * use 1..1 MS
-  * use = #temp
+  //* use 1..1 MS
+  //* use = #temp
   * use ^short = "Se define el uso de este identificador"
   * use ^definition = "Se definirá este uso siempre como \"temp\""
   * type 1..1 MS
@@ -78,6 +80,7 @@ Description: "Prestador Profesional Individual definido para fines de requerimie
   * type ^short = "Descripción del identificador"
   * type ^definition = "Descripción para el tipo de identificador"
     * coding MS
+      * code = #4
       * system 1..1 MS
       * system ^short = "Sistema de codificación para el código de tipo de identificador"
   * value 1..1 MS

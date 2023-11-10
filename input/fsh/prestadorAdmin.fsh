@@ -30,8 +30,8 @@ Description: "Prestador Administrativo definido para fines de requerimientos nor
 * identifier 1..2
 * identifier[run] ^short = "Identificador destinado a determinar el número de RUN"
 * identifier[run] ^definition = "Corresponde al identificador (RUN) otorgado el Registro Civil de Chile"
-  * use 1..1 MS 
-  * use = #official
+  //* use MS 
+  //* use = #official
   * type 1..1 MS
   //* type from VSTipoIdentificadorDEIS
   * type ^short = "Descripción del identificador"
@@ -40,7 +40,7 @@ Description: "Prestador Administrativo definido para fines de requerimientos nor
       * system 0..1 MS
       * system ^short = "Sistema de codificación para el código de tipo de identificador"
       * code 1..1 MS
-      //* code = #1
+      * code = #1
       * code ^short = "Código que identifica al tipo de documento de identificador"
       * code ^definition = "Código que identifica al tipo de documento de identificador"
   

@@ -18,12 +18,12 @@ Description: "MINSAL Prestador Profesional Ejemplo 1"
 * identifier[run].system = "https://api.cl/system/run"
 * identifier[run].value = "32.333.333-3"
 
-* identifier[rnpi].use = #secondary
+* identifier[rnpi].use = #official
 * identifier[rnpi].type.coding.system = "https://interoperabilidad.minsal.cl/fhir/ig/hpd/CodeSystem/VSTipoIdentificadorDEIS"
 * identifier[rnpi].type.coding.code = #2
 * identifier[rnpi].value = "123884"
 
-* identifier[otro].use = #temp
+* identifier[otro].use = #secondary
 * identifier[otro].type.coding.system = "https://interoperabilidad.minsal.cl/fhir/ig/hpd/CodeSystem/VSTipoIdentificadorDEIS"
 * identifier[otro].type.coding.code = #4
 * identifier[otro].value = "123884"
