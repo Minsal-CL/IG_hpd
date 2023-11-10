@@ -20,6 +20,8 @@ Description: "Prestador Administrativo definido para fines de requerimientos nor
 * ^jurisdiction = urn:iso:std:iso:3166#CL "Chile"
 * ^copyright = "Usado con el permiso de HL7 International, todos los derechos resevados en los Licencias de HL7 Internacional."
 
+* name 1..1 MS
+
 * identifier ^short = "Id de los prestadores"
 * identifier ^definition = "Identificador para cada prestador. El identificador principal en Chile es el Registro Único Nacional (RUN), identificador que es obligatorio. Además, se puede ingresar un ID extra para cada prestador, disponibilizado por Registro Nacional de Prestadores Institucionales (NRPI), este identificador es opcional"
 * identifier ^comment = "Este elemento permite ingresar dos identificadores, uno de tipo RUN y uno de otro tipo de identificador"

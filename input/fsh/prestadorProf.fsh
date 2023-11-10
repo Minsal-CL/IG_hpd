@@ -24,6 +24,9 @@ Description: "Prestador Profesional Individual definido para fines de requerimie
 
 * extension contains https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/CodigoPaises named Nacionalidad 1..1 MS
 
+
+* name 1..1 MS
+
 * identifier 2..3
 * identifier[run] 1..1 MS
 * identifier[run] ^short = "Identificador destinado a determinar el número de RUN"

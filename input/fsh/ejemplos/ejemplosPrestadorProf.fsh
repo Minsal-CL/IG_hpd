@@ -4,6 +4,9 @@ Usage: #example
 Title: "MINSAL Prestador Profesional Ejemplo 1"
 Description: "MINSAL Prestador Profesional Ejemplo 1"
 
+* name.family = "Perez"
+* name.given = "Juan"
+
 * extension[Nacionalidad].url = "https://hl7chile.cl/fhir/ig/clcore/StructureDefinition/CodigoPaises"
 * extension[Nacionalidad].valueCodeableConcept.coding.system = "https://hl7chile.cl/fhir/ig/clcore/CodeSystem/CodPais"
 * extension[Nacionalidad].valueCodeableConcept.coding.code = #152
